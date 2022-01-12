@@ -16,14 +16,6 @@ namespace FlappyCube {
 			_rigidbody.bodyType = RigidbodyType2D.Static;
 			_gameBehaviour.GameStarted += EnableMovement;
 		}
-		private void Update() {
-			if (Input.GetKeyDown(KeyCode.Q)) {
-				_gameBehaviour.StartGame();
-			}
-			if (Input.GetKeyDown(KeyCode.Space)) {
-				Jump();
-			}
-		}
 
 		public void Jump() {
 			_rigidbody.velocity = Vector2.up * _jumpForce;
