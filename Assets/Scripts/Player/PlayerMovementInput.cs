@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace FlappyCube {
+namespace FlappyCube.Player {
 	public class PlayerMovementInput: MonoBehaviour {
 		[SerializeField] private PlayerMovement _movement;
 

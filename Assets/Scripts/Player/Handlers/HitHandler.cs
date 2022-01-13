@@ -1,12 +1,12 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using Utilities.Events;
 
-namespace FlappyCube {
+namespace FlappyCube.Player {
 	public class HitHandler: MonoBehaviour {
-		public event Action Hited;
+		[SerializeField] private GameEvent _event;
 
 		protected void OnCollisionEnter2D(Collision2D collision) {
-			Hited?.Invoke();
+			_event.Invoke();
 		}
 	}
 }

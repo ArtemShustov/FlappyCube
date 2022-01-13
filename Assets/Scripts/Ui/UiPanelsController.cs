@@ -1,20 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using Utilities.Events;
 
-namespace FlappyCube {
+namespace FlappyCube.Ui {
 	public class UiPanelsController: MonoBehaviour {
-		[SerializeField] private GameoverUiPanel _gameoverPanel;
-		[SerializeField] private InGameUiPanel _inGamePanel;
-		[SerializeField] private MenuUiPanel _menuPanel;
+		[SerializeField] private UiPanel _gameoverPanel;
+		[SerializeField] private UiPanel _inGamePanel;
+		[SerializeField] private UiPanel _menuPanel;
 		[Space]
-		[SerializeField] private GameBehaviour _gameBehaviour;
+		[SerializeField] private GameEvent _gameEnded;
+		[SerializeField] private GameEvent _gameStarted;
 
 		private UiPanel _activePanel;
 
 		protected void Start() {
-			_gameBehaviour.GameStarted += ShowInGamePanel;
-			_gameBehaviour.GameEnded += ShowGameoverPanel;
-
 			SetActivePanel(_menuPanel);
 		}
 
@@ -29,9 +27,13 @@ namespace FlappyCube {
 		private void ShowInGamePanel() => SetActivePanel(_inGamePanel);
 		private void ShowMenuPanel() => SetActivePanel(_menuPanel);
 
+		protected void OnEnable() {
+			_gameStarted.AddListener(ShowInGamePanel);
+			_gameEnded.AddListener(ShowGameoverPanel);
+		}
 		protected void OnDestroy() {
-			_gameBehaviour.GameStarted -= ShowInGamePanel;
-			_gameBehaviour.GameEnded -= ShowGameoverPanel;
+			_gameStarted.RemoveListener(ShowInGamePanel);
+			_gameEnded.RemoveListener(ShowGameoverPanel);
 		}
 	}
 }

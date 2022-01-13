@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3539051009550622849}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3539051007792322909
 MonoBehaviour:
@@ -153,7 +153,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3539051009550622849}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &3539051009076465308
 MonoBehaviour:
@@ -270,7 +270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3539051009286346539}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 5, z: 0}
+  m_LocalPosition: {x: 0.5, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3539051009550622849}
@@ -345,8 +345,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3539051009076465305}
   - {fileID: 3539051007792322906}
+  - {fileID: 3539051009076465305}
   - {fileID: 3539051009286346542}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -360,11 +360,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3539051009550622848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0a9d4acf6e6c83438435feac02ce05f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a084059103bd9243b3f0e7f02f8b807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _wallHeight: 10
   _holeHeight: 2
+  _minHolePosition: 2
+  _maxHolePosition: 8
   _bottomPlatform: {fileID: 3539051007792322909}
   _topPlatform: {fileID: 3539051009076465308}
   _hole: {fileID: 3539051009286346540}
@@ -383,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1.4
+  _gameEnded: {fileID: 11400000, guid: 8b60c796c727a1f4fa4fa1c14cd55ff1, type: 2}
 --- !u!114 &4641691806731463623
 MonoBehaviour:
   m_ObjectHideFlags: 0

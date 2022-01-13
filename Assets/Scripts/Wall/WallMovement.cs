@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
+using Utilities.Events;
 
-namespace FlappyCube {
+namespace FlappyCube.Wall {
 	public class WallMovement: MonoBehaviour {
 		[SerializeField] private float _speed = 2;
-		
-		private GameBehaviour _gameBehaviour;
+		[Space]
+		[SerializeField] private GameEvent _gameEnded;
 
-		public void Init(GameBehaviour gameBehaviour) {
-			_gameBehaviour = gameBehaviour;
-			_gameBehaviour.GameEnded += StopMovement;
-		}
 		protected void Update() {
 			var movement = -Vector3.right * _speed * Time.deltaTime;
 			transform.Translate(movement);
@@ -17,8 +14,11 @@ namespace FlappyCube {
 
 		private void StopMovement() => Destroy(this);
 
+		protected void OnEnable() {
+			_gameEnded.AddListener(StopMovement);
+		}
 		protected void OnDestroy() {
-			_gameBehaviour.GameEnded -= StopMovement;
+			_gameEnded.RemoveListener(StopMovement);
 		}
 	}
 }

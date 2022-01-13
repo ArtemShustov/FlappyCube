@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlappyCube {
+namespace FlappyCube.Wall {
 	[RequireComponent(typeof(SpriteRenderer))]
 	[RequireComponent(typeof(BoxCollider2D))]
 	public class WallPlatform: MonoBehaviour {

@@ -1,13 +1,14 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using Utilities.Events;
+using FlappyCube.Wall;
 
-namespace FlappyCube {
+namespace FlappyCube.Player {
 	public class WallPassHandler: MonoBehaviour {
-		public event Action Passed;
+		[SerializeField] private GameEvent _event;
 
 		protected void OnTriggerEnter2D(Collider2D collision) {
 			if (collision.transform.TryGetComponent<WallHole>(out var hole)) {
-				Passed?.Invoke();
+				_event.Invoke();
 			}
 		}
 	}

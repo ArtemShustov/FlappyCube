@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlappyCube {
+namespace FlappyCube.Wall {
 	public class WallDestroyer: MonoBehaviour {
 		private Transform _destroyPoint;
 

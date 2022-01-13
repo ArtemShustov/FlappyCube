@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FlappyCube {
+namespace FlappyCube.Wall {
 	[RequireComponent(typeof(BoxCollider2D))]
 	public class WallHole: MonoBehaviour {
 		[SerializeField] private float _width = 0.1f;
@@ -10,7 +10,7 @@ namespace FlappyCube {
 
 			collider.size = new Vector2(_width, height);
 
-			transform.localPosition = new Vector3(0, position, 0);
+			transform.localPosition = new Vector3(transform.localPosition.x, position, 0);
 		}
 	}
 }

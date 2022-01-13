@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
+using Utilities.Events;
 
-namespace FlappyCube {
+namespace FlappyCube.Player {
 	public class WallPassSound: MonoBehaviour {
-		[SerializeField] private WallPassHandler _wallPassHandler;
 		[SerializeField] private AudioSource _audioSource;
-
-		protected void Start() {
-			_wallPassHandler.Passed += PlaySound;
-		}
+		[Space]
+		[SerializeField] private GameEvent _wallPassed;
 
 		private void PlaySound() => _audioSource.PlayOneShot(_audioSource.clip);
 
-		protected void OnDestroy() {
-			_wallPassHandler.Passed -= PlaySound;
+		protected void OnEnable() {
+			_wallPassed.AddListener(PlaySound);
+		}
+		protected void OnDisable() {
+			_wallPassed.RemoveListener(PlaySound);
 		}
 	}
 }
