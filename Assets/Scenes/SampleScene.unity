@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultResolution: {x: 720, y: 1280}
-  _widthOrHeight: 0
+  _widthOrHeight: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1753,6 +1753,7 @@ GameObject:
   - component: {fileID: 1373593044}
   - component: {fileID: 1373593043}
   - component: {fileID: 1373593042}
+  - component: {fileID: 1373593045}
   m_Layer: 5
   m_Name: StartGameButton
   m_TagString: Untagged
@@ -1825,8 +1826,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 9793f7a278891534eab73c27eeddc1c0, type: 2}
-        m_TargetAssemblyTypeName: Utilities.Events.GameEvent, Assembly-CSharp
+      - m_Target: {fileID: 1373593045}
+        m_TargetAssemblyTypeName: Utilities.Events.GameEventInvoker, Assembly-CSharp
         m_MethodName: Invoke
         m_Mode: 1
         m_Arguments:
@@ -1875,6 +1876,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373593040}
   m_CullTransparentMesh: 1
+--- !u!114 &1373593045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373593040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e71382d3d894f469383429ab025c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: 9793f7a278891534eab73c27eeddc1c0, type: 2}
 --- !u!1 &1402461620
 GameObject:
   m_ObjectHideFlags: 0
